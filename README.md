@@ -1,6 +1,6 @@
 # weather-app-react
 
-weather-app-react uses the https://openweathermap.org/api/one-call-api#data API for its data, its a remake of my previous weather app made in vanilla javascript, this app is fully react.
+weather-app-react uses the https://openweathermap.org/api/one-call-api#data API for its data, its a remake of my previous weather app made in vanilla javascript, this app is fully react using hooks.
 
 
 ## How to use?

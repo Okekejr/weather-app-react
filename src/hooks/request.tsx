@@ -2,7 +2,7 @@ import { QueryData, Weather } from "@/types/weather";
 import { useCallback, useState } from "react";
 
 export const useRequest = () => {
-  const [city, setCity] = useState("");
+  const [search, setSearch] = useState("");
   const [weather, setWeather] = useState<Weather[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -20,5 +20,23 @@ export const useRequest = () => {
     }
   }, []);
 
-  return { city, setCity, weather, setWeather, loading, fetching };
+  const getGeo = async function (city: string) {
+    // using gecoding to get latitude and longitude coordinates
+    const location = await fetch(`https://geocode.xyz/${city}?json=1`);
+    const cords = await location.json();
+    const latitude = cords.latt;
+    const longitude = cords.longt;
+
+    fetching({ latitude, longitude });
+  };
+
+  return {
+    search,
+    setSearch,
+    weather,
+    setWeather,
+    loading,
+    fetching,
+    getGeo,
+  };
 };

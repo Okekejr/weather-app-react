@@ -1,3 +1,4 @@
+import { SearchBar } from "@/components/search";
 import { useRequest } from "@/hooks/request";
 import { FC, useEffect, useState } from "react";
 

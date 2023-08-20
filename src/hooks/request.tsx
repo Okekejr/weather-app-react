@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 
 export const useRequest = () => {
   const [search, setSearch] = useState("");
-  const [weather, setWeather] = useState<Weather[] | null>(null);
+  const [weather, setWeather] = useState<Weather | null>(null);
   const [main, setMain] = useState<Weather["current"] | null>(null);
   const [loading, setLoading] = useState(false);
 

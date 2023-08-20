@@ -1,8 +1,12 @@
-import { Container, ContainerProps } from "@chakra-ui/react";
+import { Container, ContainerProps, Flex, FlexProps } from "@chakra-ui/react";
 import { FC } from "react";
 
 interface Props extends ContainerProps {
   children: React.ReactElement | React.ReactElement[];
+}
+
+interface Flexing extends FlexProps {
+  children: JSX.Element[];
 }
 
 export const Layout: FC<Props> = ({ children, ...rest }) => {
@@ -22,5 +26,13 @@ export const Layout: FC<Props> = ({ children, ...rest }) => {
     >
       {children}
     </Container>
+  );
+};
+
+export const GridItemContainer = ({ children }: Flexing) => {
+  return (
+    <Flex flexDirection={{ base: "column", md: "row" }} gap={12}>
+      {children}
+    </Flex>
   );
 };

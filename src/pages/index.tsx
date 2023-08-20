@@ -33,7 +33,7 @@ const Home: FC = () => {
     <>
       <Layout>
         <Card>
-          <HomeCard data={main} />
+          <HomeCard data={main} weather={weather} />
         </Card>
       </Layout>
     </>

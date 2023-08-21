@@ -3,19 +3,20 @@ import { GridItemContainer } from "../layout";
 import { Weather } from "@/types/weather";
 import { useCurrent } from "@/hooks/currentWeather";
 import { ItemsComp } from "./itemsComp";
+import { FlexProps } from "@chakra-ui/react";
 
-interface Props {
+interface Props extends FlexProps {
   data: Weather["current"];
   weather: Weather | null;
 }
 
-export const Items: FC<Props> = ({ data, weather }) => {
+export const Items: FC<Props> = ({ data, weather, ...rest }) => {
   const { others } = useCurrent({ data, weather });
 
   const itemComps = Object.values(others);
 
   return (
-    <GridItemContainer>
+    <GridItemContainer {...rest}>
       {itemComps.map((item, i) => {
         return (
           <ItemsComp

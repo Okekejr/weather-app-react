@@ -1,4 +1,3 @@
-import { useRequest } from "@/hooks/request";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   Flex,
@@ -11,9 +10,19 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 
-export const SearchBar: FC = () => {
-  const { search, setSearch, loading, getGeo } = useRequest();
+interface Props {
+  search: string;
+  loading: boolean;
+  getGeo: (city: string) => Promise<void>;
+  setSearch: (newValue: string) => void;
+}
 
+export const SearchBar: FC<Props> = ({
+  search,
+  loading,
+  getGeo,
+  setSearch,
+}) => {
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     getGeo(search);
@@ -29,7 +38,7 @@ export const SearchBar: FC = () => {
     <>
       <form onSubmit={submitHandler}>
         <FormControl isRequired>
-          <InputGroup w={{ base: "19rem", md: "30rem" }}>
+          <InputGroup w={{ base: "", md: "22rem", lg: "30rem" }}>
             <InputLeftElement pointerEvents="none">
               <SearchIcon color="gray.300" />
             </InputLeftElement>

@@ -1,41 +1,55 @@
 import { Card } from "@/components/UI/card";
 import { HomeCard } from "@/components/UI/homeCard";
 import { Layout } from "@/components/layout";
+import { SearchBar } from "@/components/search";
 import { useRequest } from "@/hooks/request";
-import { FC, useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
+import { FC, useEffect } from "react";
 
 const Home: FC = () => {
-  const [error, setError] = useState("");
-  const { fetching, weather, main } = useRequest();
+  const {
+    navRequest,
+    bgImageUpdate,
+    getGeo,
+    setSearch,
+    loading,
+    search,
+    bgImg,
+    weather,
+    main,
+    daily,
+  } = useRequest();
 
   useEffect(() => {
     // Request location permission and fetch weather data
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const { latitude, longitude } = position.coords;
-            fetching({ latitude, longitude });
-          } catch (error) {
-            setError("Error fetching weather data");
-            console.error("Error fetching weather data:", error);
-          }
-        },
-        (error) => {
-          setError("Error getting location");
-          console.error("Error getting location:", error);
-        }
-      );
-    }
+    navRequest();
   }, []);
+
+  useEffect(() => {
+    // Update bgImg based on currentWeather
+    bgImageUpdate();
+  }, [main]);
 
   return (
     <>
-      <Layout>
-        <Card>
-          <HomeCard data={main} weather={weather} />
-        </Card>
-      </Layout>
+      <Box
+        minH="100vh"
+        backgroundImage={bgImg}
+        bgRepeat="no-repeat"
+        bgSize="cover"
+      >
+        <Layout>
+          <Card>
+            <SearchBar
+              search={search}
+              loading={loading}
+              getGeo={getGeo}
+              setSearch={setSearch}
+            />
+            <HomeCard data={main} weather={weather} daily={daily} />
+          </Card>
+        </Layout>
+      </Box>
     </>
   );
 };

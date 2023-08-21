@@ -6,7 +6,7 @@ interface Props extends ContainerProps {
 }
 
 interface Flexing extends FlexProps {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 }
 
 export const Layout: FC<Props> = ({ children, ...rest }) => {
@@ -20,7 +20,7 @@ export const Layout: FC<Props> = ({ children, ...rest }) => {
       position="relative"
       px={{ base: 6, lg: 24 }}
       pt={{ base: 6, md: 16 }}
-      pb={{ sm: 8, md: 24 }}
+      pb={{ base: 6, md: 16 }}
       zIndex={10}
       {...rest}
     >
@@ -29,9 +29,9 @@ export const Layout: FC<Props> = ({ children, ...rest }) => {
   );
 };
 
-export const GridItemContainer = ({ children }: Flexing) => {
+export const GridItemContainer = ({ children, ...rest }: Flexing) => {
   return (
-    <Flex flexDirection={{ base: "column", md: "row" }} gap={12}>
+    <Flex flexDirection={{ base: "column", md: "row" }} gap={12} {...rest}>
       {children}
     </Flex>
   );

@@ -2,7 +2,7 @@ import { Flex, FlexProps } from "@chakra-ui/react";
 import { FC } from "react";
 
 interface Props extends FlexProps {
-  children: React.ReactElement;
+  children: React.ReactElement[];
 }
 
 export const Card: FC<Props> = ({ children }) => {
@@ -10,6 +10,7 @@ export const Card: FC<Props> = ({ children }) => {
     <>
       <Flex
         backgroundColor="#090B17"
+        backdropFilter="blur(50px)"
         borderRadius="15px"
         flexDirection="column"
         padding="60px"

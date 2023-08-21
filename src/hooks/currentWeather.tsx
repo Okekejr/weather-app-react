@@ -22,12 +22,14 @@ export const useCurrent = ({ data, weather }: Props) => {
   const { main } = data?.weather?.[0] || {};
 
   // converting UnixTime stamp to milliseconds and then actual date format
-  const dateObject = new Date(+dt * 1000);
-  const date = dateObject.toLocaleString("en-US", {
-    day: "numeric",
-    weekday: "short",
-    month: "short",
-  });
+  const dateObject = (unix: number) => new Date(+unix * 1000);
+
+  const formattedDate: (dateObj: Date) => string = (dateObj) =>
+    dateObj.toLocaleString("en-US", {
+      day: "numeric",
+      weekday: "short",
+      month: "short",
+    });
 
   // current Temperature
   const mainTemp = Math.floor(data.temp);
@@ -54,5 +56,13 @@ export const useCurrent = ({ data, weather }: Props) => {
     },
   };
 
-  return { date, main, mainTemp, time_zone, others };
+  return {
+    dt,
+    dateObject,
+    formattedDate,
+    main,
+    mainTemp,
+    time_zone,
+    others,
+  };
 };

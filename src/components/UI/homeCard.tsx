@@ -27,7 +27,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
             <MainDate
               data={data}
               weather={weather}
-              mb={{ base: 12, md: 36, lg: 6 }}
+              mb={{ base: 12, md: 36, lg: 4 }}
             />
           ) : (
             <Stack mb={12}>
@@ -53,7 +53,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
             <Items
               data={data}
               weather={weather}
-              mb={{ base: 12, md: 16, lg: 6 }}
+              mb={{ base: 12, md: 16, lg: 4 }}
             />
           ) : (
             <Stack mb={12}>

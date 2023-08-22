@@ -16,9 +16,9 @@ export const MainIcon: FC<Props> = ({ data, weather, ...rest }) => {
     <>
       <Image
         src={Icons({ main })}
-        w={{ base: "", md: "20rem", lg: "25rem" }}
-        h={{ base: "", md: "15rem", lg: '25rem' }}
-        m='auto'
+        w={{ base: "", md: "20rem", lg: "23rem" }}
+        h={{ base: "", md: "15rem", lg: "23rem" }}
+        m="auto"
         alt={main}
         {...rest}
       />

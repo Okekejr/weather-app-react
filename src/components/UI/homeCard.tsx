@@ -30,7 +30,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
               mb={{ base: 12, md: 36, lg: 4 }}
             />
           ) : (
-            <Stack mb={12}>
+            <Stack mb={{ base: 12, md: 36, lg: 4 }}>
               <Skeleton height="10px" width="5rem" />
               <Skeleton height="10px" width="8rem" />
             </Stack>
@@ -43,7 +43,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
               mb={{ base: 12, md: 8, lg: 0 }}
             />
           ) : (
-            <Stack mb={12}>
+            <Stack mb={{ base: 12, md: 8, lg: 0 }}>
               <Skeleton height={{ base: "4rem", md: "6rem" }} width="7rem" />
               <Skeleton height="10px" width="12rem" />
             </Stack>
@@ -56,7 +56,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
               mb={{ base: 12, md: 16, lg: 4 }}
             />
           ) : (
-            <Stack mb={12}>
+            <Stack mb={{ base: 12, md: 16, lg: 4 }}>
               <Skeleton height="10px" width="5rem" />
               <Skeleton height="10px" width="10rem" />
               <Skeleton height="10px" width="12rem" />
@@ -70,11 +70,7 @@ export const HomeCard: FC<Props> = ({ data, weather, daily }) => {
           <MainIcon data={data} weather={weather} />
         ) : (
           <Stack mb={12}>
-            <Skeleton
-              height={{ base: "4rem", md: "6rem" }}
-              width="7rem"
-              m="auto"
-            />
+            <Skeleton h="10rem" m="auto" width="10rem" />
           </Stack>
         )}
       </GridItemContainer>

@@ -25,8 +25,8 @@ export const DaysCard: FC<Props> = ({ data, index }) => {
         backdropFilter="blur(20px)"
         borderRadius="30px"
         display={index === 0 ? "none" : "flex"}
-        w={{ base: "2.6rem", lg: "3rem" }}
-        h={{ base: "7rem", lg: "8rem" }}
+        w="3rem"
+        h="8rem"
         p={4}
       >
         <Text fontSize="0.8rem" fontWeight="bold">

@@ -88,6 +88,8 @@ export const useRequest = () => {
         newBgImg = "/assets/bgImg/snowBackground.jpg";
       } else if (currentWeather === "Thunderstorm") {
         newBgImg = "/assets/bgImg/thunderBackground.jpg";
+      } else if (currentWeather === "Mist") {
+        newBgImg = "/assets/bgImg/mistyBackground.jpg";
       } else {
         newBgImg = ""; // Default background reverts to chakra theme
       }

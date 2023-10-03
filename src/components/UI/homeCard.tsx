@@ -5,8 +5,8 @@ import { MainDate } from "./date";
 import { CurrentTemp } from "./currentTemp";
 import { Items } from "./items";
 import { DailyComp } from "./days";
-import { MainIcon } from "./mainIcon";
 import { GridItemContainer } from "../layout";
+import { MainIcon } from "./mainIcon";
 
 interface Props {
   data: Weather["current"] | null;

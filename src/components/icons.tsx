@@ -16,6 +16,9 @@ export const Icons = ({ main }: Props) => {
     case "Snow":
       main = "/assets/svg/snowy.svg";
       break;
+    case "Mist":
+      main = "/assets/svg/cloudy.svg";
+      break;
     case "Clear":
       main = "/assets/svg/clear.svg";
       break;
